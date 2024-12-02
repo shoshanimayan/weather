@@ -17,8 +17,7 @@ const Weather = () => {
           setLong(position.coords.longitude);
         });
     
-        console.log("Latitude is:", lat)
-        console.log("Longitude is:", long)
+        
 
         getWeather()
       }, [lat, long]);
@@ -37,7 +36,6 @@ const Weather = () => {
         .then(res => res.json())
         .then(result => {
           setData(result)
-          console.log(result);
         });
       }
 

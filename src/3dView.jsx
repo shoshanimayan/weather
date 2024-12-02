@@ -16,10 +16,20 @@ const ModelView = ({data=null}) => {
     setModelPath(data===null?null:data.weather[0].id)
    },[data])
 
+   const isDaytime=(data)=> {
+
+  
+    const currentUnixTime = Math.floor(Date.now() / 1000); // Get current time in Unix timestamp
+  
+  
+  
+    return currentUnixTime > data.sys.sunrise && currentUnixTime < data.sys.sunset;
+  
+  }
+
    const renderObject=()=>
     {
-        console.log(modelPath)
-        console.log(modelPath===803)
+       
 
         if(modelPath===null)
         {
@@ -29,7 +39,14 @@ const ModelView = ({data=null}) => {
         switch(modelPath)
         {
             case 800:
-                path = '/icons/sun.glb'
+                if(isDaytime(data)){
+                    path = '/icons/sun.glb'
+                }
+                else
+                {
+                    path = '/icons/moon.glb'
+ 
+                }
                 break;
             case 801: case 802: case 803: case 804:
                 path = '/icons/cloud.glb'
