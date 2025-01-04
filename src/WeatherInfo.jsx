@@ -19,13 +19,17 @@ const WeatherInfo = ({data}) => {
         return ((c * (9/5)) + 32);
     }
 
+    const roundBetter=(n)=>{
+        return Math.round(n*10)/10
+    }
+
   return (
 
  <div className='Text'>
                 {isEmptyArray(data)&&"Waiting for access to device location"}
                 {
                   !isEmptyArray(data) &&data.name!==null&& data.weather!==undefined && data.weather.length>0 &&<React.Fragment><div className='TextBox'>
-                   <div>{cToF( data.main.temp)} &deg;F</div>
+                   <div>{roundBetter( cToF( data.main.temp))} &deg;F</div>
                     <div> {capitilizeFirstLetters( data.weather[0].description)}</div>
                     <div> {data.name}</div>
                     </div>
