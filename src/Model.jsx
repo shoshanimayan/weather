@@ -3,7 +3,7 @@ import { useGLTF , Stats, OrbitControls } from '@react-three/drei'
 
 export default function Model(props) {
   const groupRef = useRef()
-  console.log(props.path.href)
+  console.log(props.path)
   const { nodes, materials } = useGLTF(props.path.href)
   return (
     <group ref={groupRef} {...props} dispose={null}>
