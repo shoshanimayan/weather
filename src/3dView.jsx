@@ -65,7 +65,7 @@ const ModelView = ({data=null}) => {
                 path="";
                 break;
         }
-        
+        console.log(path)
         return  <Model path={path} position={[0, 0, 0]}/>
 
 
