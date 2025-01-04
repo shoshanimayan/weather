@@ -66,7 +66,7 @@ const ModelView = ({data=null}) => {
                 break;
         }
         
-        return  <Model path={path+"/"} position={[0, 0, 0]}/>
+        return  <Model path={path} position={[0, 0, 0]}/>
 
 
     }
